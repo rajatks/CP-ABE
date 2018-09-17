@@ -12,20 +12,24 @@ mechanism. A CPABE encryption scheme consists of four fundamental algorithms:-
  Key generation
  Decrypt
 
-Setup
+Setup:
+
 The setup algorithm takes no input other than the implicit security parameter. It outputs the public parameters
 PK and a master key MK.
 
-Encrypt(PK,M, A)
+Encrypt(PK,M, A):
+
 The encryption algorithm takes as input the public parameters PK, a message M, and an access structure A over the universe
 of attributes. The algorithm will encrypt M and produce a ciphertext CT such that only a user that possesses a set of
 attributes that satisfies the access structure will be able to decrypt the message. We will assume that the ciphertext implicitly
 contains A.
 
-Key Generation(MK,S)
+Key Generation(MK,S):
+
 The key generation algorithm takes as input the master key MK and a set of attributes S that describe the key. It outputs 
 a private key SK
 
-Decrypt(PK, CT, SK)
+Decrypt(PK, CT, SK):
+
 The decryption algorithm takes as input the public parameters PK, a ciphertext CT, which contains an access policy A,
 and a private key SK, which is a private key for a set S of attributes. If the set S of attributes satisfies the access structure A then the algorithm will decrypt the ciphertext and return a message M
